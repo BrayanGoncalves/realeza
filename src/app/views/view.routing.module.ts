@@ -2,13 +2,15 @@ import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 
 const viewRoutes: Routes = [
-  // {
-  //   path: '/products',
-  //   loadChildren: './views/product-crud/product.module.ts#ProductModule'
-  // },
   {
     path: '',
-    loadChildren: './views/home/home.module.ts#HomeModule'
+    loadChildren: () => import('../views/home/home.module')
+    .then(mod => mod.HomeModule),
+  },
+  {
+    path: 'sobre',
+    loadChildren: () => import('../views/about/about.module')
+    .then(mod => mod.AboutModule),
   },
 ];
 
