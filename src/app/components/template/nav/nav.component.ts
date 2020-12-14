@@ -12,12 +12,12 @@ export class NavComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  @HostListener('window:scroll', ['$event']) onScrollEvent($event: any){
+  @HostListener('window:scroll', ['$event']) onScrollEvent($event: any): void {
     const px = 250;
-    
+
     if (window.scrollY >= px) {
       console.log(window.scrollY);
-      window.document.getElementById('navbar-realeza')?.className;
+      console.log(window.document.getElementById('navbar-realeza')?.className);
     }
   }
 

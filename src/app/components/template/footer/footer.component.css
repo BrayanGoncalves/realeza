@@ -1,12 +1,5 @@
 .footer {
-  bottom: 0;
-
-  display: flex;
-  justify-content: flex-end;
   background-color: #48494B;
-
-  /* height: 50px; */
-  width: 100%;
 }
 
 .footer > span {
@@ -16,4 +9,21 @@
 
 ul {
   list-style-type: none;
+}
+
+.payment-methods {
+  width: 60px;
+  height: 37px;
+}
+
+.shipping-ways {
+  width: 74px;
+  height: 37px;
+}
+
+.stripe {
+  /* height: 80px; */
+  background-color: #000000;
+  color: #ffffff;
+  /* letter-spacing: 1px; */
 }

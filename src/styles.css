@@ -1,9 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~bootstrap/dist/css/bootstrap.min.css';
 @import url("https://fonts.googleapis.com/css?family=Oswald");
+@import url("https://use.typekit.net/oov2wcw.css");
 
 * {
-  font-family: "Oswald", sans-serif;
+  font-family: century-gothic, "Oswald", sans-serif;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;

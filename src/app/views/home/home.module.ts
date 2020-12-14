@@ -8,6 +8,8 @@ import { CardsSpecialDiscountComponent } from '../../components/home/cards-speci
 import { StripeEmailMarketingComponent } from '../../components/home/stripe-email-marketing/stripe-email-marketing.component';
 import { StripeQuickMessageComponent } from '../../components/home/stripe-quick-message/stripe-quick-message.component';
 import { CardsNewProductComponent } from '../../components/home/cards-new-product/cards-new-product.component';
+import { MarketBrandsComponent } from '../../components/home/market-brands/market-brands.component';
+import { HighlightProductCategoryComponent } from '../../components/home/highlight-product-category/highlight-product-category.component';
 
 @NgModule({
   imports: [
@@ -22,6 +24,8 @@ import { CardsNewProductComponent } from '../../components/home/cards-new-produc
     StripeQuickMessageComponent,
     StripeEmailMarketingComponent,
     CardsNewProductComponent,
+    MarketBrandsComponent,
+    HighlightProductCategoryComponent,
   ],
   providers: [],
 })
