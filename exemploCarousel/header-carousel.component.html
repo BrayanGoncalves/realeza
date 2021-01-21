@@ -1,0 +1,69 @@
+<div class="carousel slide" data-ride="carousel" *ngIf="_isCarousel; else placeholder" (deferLoad)="setShowing()">
+  <div class="swiper-container" appWidthFromWindow [swiper]="swiperConfig" [(index)]="swiperIndex" (indexChange)="swiperIndexChange($event, showing)">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" *ngFor="let item of _data">
+        <img appWidthFromWindow class="header-image d-block" [src]="item?.load ? (item?.image | bucket) : ''" align="middle" alt="Cabeçalho {{ item?.title }}">
+        <div class="header-text text-light text-center w-100">
+          <div class="container">
+            <h1 class="title">{{ item?.title }}</h1>
+            <p class="subtitle">{{ item?.subtitle }}</p>
+
+            <div class="bottom-items-wrapper">
+              <ng-container *ngIf="item?.linkUrl">
+                <ng-container *ngIf="!item?.linkUrl.includes('//'); else externalLink">
+                  <a class="btn btn-primary call-to-action" [routerLink]="item?.linkUrl">{{ item?.buttonText }}</a>
+                </ng-container>
+                <ng-template #externalLink>
+                  <a class="btn btn-primary call-to-action" [href]="item?.linkUrl" target="_blank">{{ item?.buttonText }}</a>
+                </ng-template>
+              </ng-container>
+              <div *ngIf="!item?.linkUrl" class="invisible-div"></div>
+
+              <small *ngIf="item?.legalText" class="legal-text">{{item?.legalText}}</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="swiper-pagination"></div>
+
+  </div>
+
+  <div class="outside-container swiper-arrow-container position-absolute">
+    <div id="home-carousel-prev" class="header-prev swiper-button-prev swiper-arrow d-none d-md-block"></div>
+    <div id="home-carousel-next" class="header-next swiper-button-next swiper-arrow d-none d-md-block"></div>
+  </div>
+</div>
+
+<ng-template #placeholder>
+  <div class="carousel slide" *ngIf="_data; else empty">
+    <div class="swiper-container" appWidthFromWindow>
+      <img appWidthFromWindow class="header-image d-block" [src]="_data[0]?.image" align="middle" alt="Cabeçalho {{ _data[0]?.title }}">
+      <div class="header-text text-light text-center w-100">
+        <div class="container">
+          <h1 class="title">{{ _data[0]?.title }}</h1>
+          <p class="subtitle">{{ _data[0]?.subtitle }}</p>
+
+          <div class="bottom-items-wrapper">
+            <ng-container *ngIf="_data[0]?.linkUrl; else hasNoLinkUrl">
+              <a *ngIf="!_data[0]?.linkUrl.includes('//'); else externalLink" class="btn btn-primary call-to-action" [routerLink]="_data[0]?.linkUrl">
+                {{ _data[0]?.buttonText }}
+              </a>
+              <ng-template #externalLink>
+                <a class="btn btn-primary call-to-action" [href]="_data[0]?.linkUrl" target="_blank">{{ _data[0]?.buttonText }}</a>
+              </ng-template>
+            </ng-container>
+            <ng-template #hasNoLinkUrl>
+              <div class="invisible-div"></div>
+            </ng-template>
+            <small *ngIf="_data[0]?.legalText" class="legal-text">{{_data[0]?.legalText}}</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ng-template #empty>
+    <div class="space-placeholder"></div>
+  </ng-template>
+</ng-template>

@@ -1,0 +1,71 @@
+@import 'colors_theme.scss';
+@import 'src/app/styles/mixins/mixins.scss';
+
+.space-placeholder,
+.carousel .swiper-container {
+  height: 608px;
+  background: $gray-200;
+
+  @include media-breakpoint-down(sm) {
+    height: 408px;
+  }
+}
+
+.swiper-container-horizontal>.swiper-pagination-bullets {
+  bottom: 32px;
+
+  @include media-breakpoint-down(sm) {
+    bottom: 15px;
+  }
+}
+
+.subtitle {
+  margin-bottom: 48px;
+
+  @include media-breakpoint-down(sm) {
+    margin-bottom: 25px;
+  }
+}
+
+.swiper-arrow-container {
+  width: 100%;
+  left:0;
+  right: 0;
+}
+
+.legal-text {
+  line-height: 120%;
+  display: block;
+  max-width: 70%;
+  font-size: 70%;
+
+  @include media-breakpoint-down(sm) {
+    max-width: 95%;
+    font-size: 60%;
+  }
+}
+
+.bottom-items-wrapper {
+  display: flex;
+  flex-flow: column;
+  height: 170px;
+  align-items: center;
+  justify-content: space-between;
+
+  @include media-breakpoint-down(sm) {
+    height: 140px;
+  }
+
+  &::after {
+    content: "";
+    display: block;
+    margin-top: 44px;
+    @include media-breakpoint-down(sm) {
+      margin-top: 27px;
+    }
+  }
+}
+
+.call-to-action {
+  margin-bottom: 0 !important;
+}
